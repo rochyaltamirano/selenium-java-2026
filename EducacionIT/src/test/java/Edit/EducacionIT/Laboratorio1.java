@@ -1,8 +1,7 @@
 package Edit.EducacionIT;
 
-import static org.junit.jupiter.api.Assertions.assertTrue;
-
-import org.junit.jupiter.api.Test;
+import org.testng.Assert;
+import org.testng.annotations.Test;
 
 /**
  * Unit test for simple App.
@@ -15,6 +14,6 @@ public class Laboratorio1 {
     @Test
     public void shouldAnswerWithTrue() {
     	System.out.println("Mi primer test");
-        assertTrue(true);
+        Assert.assertTrue(true);
     }
 }
