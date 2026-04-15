@@ -7,6 +7,7 @@
       <class name="Edit.EducacionIT.Laboratorio3"/>
       <class name="Edit.EducacionIT.Laboratorio2"/>
       <class name="Edit.EducacionIT.Laboratorio5"/>
+      <class name="Edit.EducacionIT.Laboratorio6b"/>
     </classes>
   </test> <!-- Test -->
 </suite> <!-- Suite -->
