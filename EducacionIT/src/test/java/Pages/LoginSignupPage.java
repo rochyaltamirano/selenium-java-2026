@@ -25,6 +25,15 @@ public class LoginSignupPage {
 	@FindBy(xpath="//button[normalize-space()='Signup']")
 	WebElement btnSignUp;
 	
+	@FindBy(css="input[data-qa='login-email']")
+	WebElement txtTooltipCompletar;
+	
+	@FindBy(xpath="//p[normalize-space()='Your email or password is incorrect!']")
+	WebElement txtIncorrectAccount;
+	
+	@FindBy(css="li:nth-child(10) a:nth-child(1)")
+	WebElement txtLogged;
+		
 	
 	public LoginSignupPage(WebDriver driver) {
 		PageFactory.initElements(driver, this);
@@ -54,5 +63,18 @@ public class LoginSignupPage {
 	public void clicEnSignUp() {
 		btnSignUp.click();
 	}
+	
+	public String getToolTipComplete() {		
+		return txtTooltipCompletar.getAttribute("validationMessage");
+	}
+	
+	public String getIncorrectAccount() {
+		return txtIncorrectAccount.getText();
+	}
+	
+	public boolean getLoggedUser() {
+		return txtLogged.getText().contains("Logged in as");	
+	}
+
 
 }
