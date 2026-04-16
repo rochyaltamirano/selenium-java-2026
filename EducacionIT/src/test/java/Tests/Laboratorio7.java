@@ -1,14 +1,15 @@
 package Tests;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.Assert;
+import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.Test;
 
 import Pages.HomePage;
-import Pages.LoginSignupPage;
-import Pages.ProductPage;
-import Pages.RegisterPage;
 
 public class Laboratorio7 {
 	
@@ -25,62 +26,38 @@ public class Laboratorio7 {
 		driver.manage().window().maximize();
 	}
 
-	
+
 	@Test
-	public void login() {
-		//Paso 1: Clic en SigIn
+	public void goToLogin() {
 		HomePage home = new HomePage(driver);
 		home.clicEnLogin();
 		
-		//Paso 2: Ingresar credenciales
-		LoginSignupPage login = new LoginSignupPage(driver);
-		login.completarEmail("correo1@yopmail.com");
-		login.completarPassword("1q2w3e4r5t");
-		
-		//Paso 3: Clic en el botón
-		login.clicEnLogin();
+		Assert.assertEquals("https://automationexercise.com/login", driver.getCurrentUrl());	
 	}
-
+	
+	
 	@Test
-	public void searchProduct() {
+	public void goToProducts() {
 		HomePage home = new HomePage(driver);
 		home.clicEnProducts();
 		
-		ProductPage productos = new ProductPage(driver);
-		productos.writeProduct("dress");
-		productos.searchProduct();
-		
+		Assert.assertEquals("https://automationexercise.com/products", driver.getCurrentUrl());
 	}
 	
 	@Test
-	public void newUserSignUp() {
+	public void goToCart() {
 		HomePage home = new HomePage(driver);
-		home.clicEnLogin();
+		home.clicEnCarrito();
 		
-		LoginSignupPage signUp = new LoginSignupPage(driver);
-		signUp.completarName("Juanita");
-		signUp.completarEmailAddress("juanita123@yopmail.com");
-		signUp.clicEnSignUp();
+		WebElement validateText = driver.findElement(By.cssSelector(".active"));
+		Assert.assertEquals("Shopping Cart",validateText.getText());
 		
-		RegisterPage register = new RegisterPage(driver);
-		register.selectTitle();
-		register.sendPassword("1q2w3e4r5t");
-		register.completeBirth("18", "January", "1990");
-		register.selectCheckNewsletter();
-		register.selectSpecialOffers();
-		
-		register.sendFirstName("Juana");
-		register.sendLastName("Perez");
-		register.sendCompany("Compania S.A.");
-		register.sendAddresses("Av. Siempreviva 742", "Calle Falsa 123");
-		register.selectCountry(2);
-		register.sendState("Estado del Testing");
-		register.sendCity("CABA");
-		register.sendZipCode("BA1230");
-		register.sendMobileNumber("0303456");
-		
-		register.clickCreateAccount();
-		
+		Assert.assertEquals("Automation Exercise - Checkout", driver.getTitle() );
 	}
+	
 
+	@AfterSuite
+	public void closePage() {
+		driver.close();
+	}
 }

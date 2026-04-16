@@ -9,13 +9,16 @@ public class HomePage {
 	
 	//Elemento/s a usar
 	@FindBy(css="a[href='/login']")
-	WebElement lnkSigIn;
+	private WebElement lnkSigIn;
 	
 	@FindBy(css="a[href='/products']")
-	WebElement lnkProducts;
+	private WebElement lnkProducts;
+	
+	@FindBy(xpath="//a[normalize-space()='Cart']")
+	private WebElement lnkCart;
 	
 	
-	//Definir el constructor de la pçagina
+	//Definir el constructor de la página
 	public HomePage(WebDriver driver) {
 		PageFactory.initElements(driver, this);
 		
@@ -28,5 +31,9 @@ public class HomePage {
 	
 	public void clicEnProducts() {
 		lnkProducts.click();
+	}
+	
+	public void clicEnCarrito() {
+		lnkCart.click();
 	}
 }
