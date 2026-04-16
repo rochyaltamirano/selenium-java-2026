@@ -25,9 +25,6 @@ public class LoginSignupPage {
 	@FindBy(xpath="//button[normalize-space()='Signup']")
 	WebElement btnSignUp;
 	
-	@FindBy(css="input[data-qa='login-email']")
-	WebElement txtTooltipCompletar;
-	
 	@FindBy(xpath="//p[normalize-space()='Your email or password is incorrect!']")
 	WebElement txtIncorrectAccount;
 	
@@ -65,7 +62,7 @@ public class LoginSignupPage {
 	}
 	
 	public String getToolTipComplete() {		
-		return txtTooltipCompletar.getAttribute("validationMessage");
+		return txtemailAddress.getAttribute("validationMessage");
 	}
 	
 	public String getIncorrectAccount() {
