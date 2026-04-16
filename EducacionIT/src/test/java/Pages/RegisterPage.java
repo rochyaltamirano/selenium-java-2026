@@ -68,6 +68,8 @@ public class RegisterPage {
 	@FindBy(css="button[data-qa='create-account']")
 	WebElement btnCreateAccount;
 	
+	@FindBy(xpath="//b[normalize-space()='Account Created!']")
+	WebElement txtAccountCreated;
 	
 	
 	public RegisterPage(WebDriver driver) {
@@ -146,4 +148,40 @@ public class RegisterPage {
 		this.btnCreateAccount.click();
 	}
 
+	public String getAccountCreated() {
+		return txtAccountCreated.getText();
+	}
+	
+	public String getCompletePassword() {		
+		return txtPassword.getAttribute("validationMessage");
+	}
+	
+	public String getCompleteFirstName() {		
+		return firstName.getAttribute("validationMessage");
+	}
+	
+	public String getCompleteLastName() {		
+		return lastName.getAttribute("validationMessage");
+	}
+	
+	public String getCompleteAddress1() {		
+		return address1.getAttribute("validationMessage");
+	}
+	
+	public String getCompleteState() {		
+		return state.getAttribute("validationMessage");
+	}
+	
+	public String getCompleteCity() {		
+		return city.getAttribute("validationMessage");
+	}
+	
+	public String getCompleteZipCode() {		
+		return zipcode.getAttribute("validationMessage");
+	}
+	
+	public String getCompleteMobileNumber() {		
+		return mobile_number.getAttribute("validationMessage");
+	}
+	
 }
