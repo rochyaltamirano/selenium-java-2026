@@ -38,10 +38,12 @@ public class LoginSignupPage {
 	}
 	
 	public void completarEmail(String email) {
+		txtEmail.clear();
 		txtEmail.sendKeys(email);
 	}
 	
 	public void completarPassword(String pass) {
+		txtPassword.clear();
 		txtPassword.sendKeys(pass);
 	}
 	
