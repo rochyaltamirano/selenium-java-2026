@@ -11,7 +11,8 @@ import org.testng.annotations.Test;
 
 import Pages.HomePage;
 
-public class Laboratorio7 {
+
+public class HomeTest {
 	
 	String url= "https://automationexercise.com";
 	String driverPath = "../EducacionIT/Drivers/chromedriver";
@@ -31,9 +32,9 @@ public class Laboratorio7 {
 	public void goToLogin() {
 		HomePage home = new HomePage(driver);
 		home.clicEnLogin();
-		
-		Assert.assertEquals("https://automationexercise.com/login", driver.getCurrentUrl());	
+		Assert.assertEquals("https://automationexercise.com/login", driver.getCurrentUrl());
 	}
+	
 	
 	
 	@Test

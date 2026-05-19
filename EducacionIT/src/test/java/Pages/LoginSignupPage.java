@@ -30,6 +30,9 @@ public class LoginSignupPage {
 	
 	@FindBy(css="li:nth-child(10) a:nth-child(1)")
 	WebElement txtLogged;
+	
+	@FindBy(xpath="//a[normalize-space()='Logout']")
+	WebElement logOut;
 		
 	
 	public LoginSignupPage(WebDriver driver) {
@@ -73,6 +76,10 @@ public class LoginSignupPage {
 	
 	public boolean getLoggedUser() {
 		return txtLogged.getText().contains("Logged in as");	
+	}
+	
+	public void clicEnlogOut() {
+		logOut.click();
 	}
 
 
